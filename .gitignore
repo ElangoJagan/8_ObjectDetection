@@ -1,0 +1,57 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---------- Virtual environment ----------
+ml_env/
+*.env
+.venv/
+
+# ---------- VS Code ----------
+.vscode/
+
+# ---------- Windows ----------
+Thumbs.db
+desktop.ini
+
+# ---------- Jupyter (if you use notebooks for experimenting) ----------
+.ipynb_checkpoints/
+
+# ---------- Logs ----------
+logs/
+*.log
+
+# ---------- ML artifacts (models, checkpoints -- too large for git) ----------
+artifacts/models/
+artifacts/experiments/
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.onnx
+
+# ---------- Data (usually too large / shouldn't be versioned) ----------
+data/raw/*
+data/processed/*
+data/annotations/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/annotations/.gitkeep
+
+# ---------- Docker ----------
+*.pid
+
+# ---------- Env / secrets ----------
+.env
+*.pem
+
+# ---------- OS / editor junk ----------
+.DS_Store
+*.swp
