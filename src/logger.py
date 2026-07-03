@@ -14,7 +14,7 @@ class Logger:
     
     def _get_log_file_path(self):
         os.makedirs(self.log_dir, exist_ok =True)
-        log_filename = f'{datetime.now().strftime('%Y_%m_%d')}.log'
+        log_filename = f'{datetime.now().strftime("%Y_%m_%d")}.log'
         
         return os.path.join(self.log_dir, log_filename)
     
