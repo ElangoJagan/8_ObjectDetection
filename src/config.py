@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -7,6 +7,10 @@ class DataConfig:
     image_size:int = 416
     num_classes:int = 3
     batch_size:int = 16
+    target_classes: list[str] = field(
+        default_factory=lambda: ["person", "dog", "car", "bicycle"]
+    )
+    include_difficult: bool = False
     
     
 @dataclass
@@ -30,6 +34,8 @@ class PathConfig:
     models_path: str = "artifacts/models"
     experiments_path: str = "artifacts/experiments"
     logs_path: str = "logs"
+    voc_images_path: str = "data/raw/VOCdevkit/VOC2007/JPEGImages"
+    voc_annotations_path: str = "data/raw/VOCdevkit/VOC2007/Annotations"
 
 
 @dataclass
