@@ -29,10 +29,10 @@ class DetectionBackbone(nn.Module):
     def __init__(self):
         super().__init__()
         
-        self.conv_block1 = self.make_block(in_channels=3, out_channels = 32)
-        self.conv_block2 = self.make_block(in_channels = 32, out_channels =64)
-        self.conv_block3 = self.make_block(in_channels =64, out_channels = 128)
-        self.conv_block4 = self.make_block(in_channels = 128, out_channels = 256)
+        self.conv_block1 = self._make_block(in_channels=3, out_channels = 32)
+        self.conv_block2 = self._make_block(in_channels = 32, out_channels =64)
+        self.conv_block3 = self._make_block(in_channels =64, out_channels = 128)
+        self.conv_block4 = self._make_block(in_channels = 128, out_channels = 256)
     
     @staticmethod
     def _make_block(in_channels:int, out_channels:int):
@@ -47,7 +47,7 @@ class DetectionBackbone(nn.Module):
             An nn.Sequential block.
         """
         return nn.Sequential(
-            nn.Con2d(in_channels, out_channels, kernel_size = 3, stride = 2, padding=1),
+            nn.Conv2d(in_channels, out_channels, kernel_size = 3, stride = 2, padding=1),
             nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace = True)
         )
@@ -86,7 +86,7 @@ class DetectionHead(nn.Module):
         self.predictor = nn.Conv2d(
             in_channels,
             num_anchors*self.outputs_per_anchor,
-            kernel_size = 3
+            kernel_size = 3,
             padding = 1
         )
     
