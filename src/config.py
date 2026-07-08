@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 class DataConfig:
     """Settings needed to load and prepare image data."""
     image_size:int = 416
-    num_classes:int = 3
+    num_classes:int = 4
     batch_size:int = 16
     target_classes: list[str] = field(
         default_factory=lambda: ["person", "dog", "car", "bicycle"]
